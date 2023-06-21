@@ -51,20 +51,15 @@ public class PrestamoEducativo extends Prestamo {
         return valorCarrera;
     }
 
-    public void calcularValorMesPrestamoCarrera(double valorCarrera) {
-        this.valorCarrera = valorCarrera;
+    public void calcularValorMesPrestamoCarrera() {
         this.valorMesPrestamoCarrera=(valorCarrera/timePrestamoMes)-(0.1*(valorCarrera/timePrestamoMes));
-    }
-
-    public double getValorMesPrestamoCarrera() {
-        return valorMesPrestamoCarrera;
     }
 
     @Override
     public String toString() {
-        return "NIVEL DE ESTUDIO'" + nivelEstudio + '\'' +
-                ", CENTRO EDUCATIVO" + centroEdcuativo +
-                ", VALOR CARRERA" + valorCarrera +
-                ", VALOR POR MES DEL PRESTAMO EDUCATIVO" + valorMesPrestamoCarrera;
+        return super.toString()+"Prestamo Educativo" +
+                "\n Nivel de estudio " + nivelEstudio +
+                "\n Valor de la carrera " + valorCarrera +
+                "\n Valor de a carrera por el prestamo en meses  " + valorMesPrestamoCarrera;
     }
 }

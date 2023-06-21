@@ -30,7 +30,8 @@ public class InstitutoEducativo {
 
     @Override
     public String toString() {
-        return "NOMBRE INSTITUTO" + nomInst + '\'' +
-                ",SIGLAS INSTITUTO" + siglasInst;
+        return super.toString()+
+                "\n NOMBRE INSTITUTO  " + nomInst +
+                "\n SIGLAS INSTITUTO  " + siglasInst;
     }
 }
