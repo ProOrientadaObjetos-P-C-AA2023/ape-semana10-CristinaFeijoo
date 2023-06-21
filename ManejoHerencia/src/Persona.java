@@ -39,8 +39,8 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "nomPersona'" + nomPersona + '\'' +
-                ", apellidosPersona" + apellidosPersona + '\'' +
-                ", userPersona" + userPersona ;
+        return "Nombre del beneficiario " + nomPersona +
+                "\n Apellidos beneficiario " + apellidosPersona +
+                "\n Usuario de Beneficiario " + userPersona ;
     }
 }
