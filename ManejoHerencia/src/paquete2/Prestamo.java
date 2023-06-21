@@ -42,9 +42,9 @@ public class Prestamo {
 
     @Override
     public String toString() {
-        return "BENEFICIARIO" + beneficiario.toString() +
-                "\n TIEMPO PRESTAMO" + timePrestamoMes +
-                "\n CIUDAD DONDE FUE EL PRESTAMO'" + ciudadPrestamo;
+        return "BENEFICIARIO  " + beneficiario +
+                "\n TIEMPO PRESTAMO   " + timePrestamoMes +
+                "\n CIUDAD DONDE FUE EL PRESTAMO   " + ciudadPrestamo;
 
     }
 }
