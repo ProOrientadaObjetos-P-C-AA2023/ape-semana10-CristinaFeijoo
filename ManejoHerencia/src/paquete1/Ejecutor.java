@@ -29,6 +29,7 @@ public class Ejecutor {
             teclado.nextLine();
             switch (opcionSelecta){
                 case 1:
+
                     //Adquirir datos del beneficiario
                     System.out.println("Nombre beneficiario");
                     String nomBeneficiario=teclado.nextLine();
@@ -38,12 +39,14 @@ public class Ejecutor {
                     String userBeneficiario=teclado.nextLine();
                     //Crea el beneficiario con los parametros/datos adquiridos
                     Persona beneficiario=new Persona(nomBeneficiario,apellidosBeneficiario,userBeneficiario);
+
                     //Prestamo
                     System.out.println("Tiempo para el prestamo en meses");
                     double timePrestamoMes=teclado.nextDouble();
                     teclado.nextLine();
                     System.out.println("Ciudad donde fue el prestamo");
-                    String ciudadPrestamo=teclado.nextLine();
+                    String ciudadPrestamo=teclado.nextLine().toLowerCase();
+
                     //Datos del automovil
                     System.out.println("Indique el tipo de automovil");
                     String tipoAuto=teclado.nextLine();
@@ -52,6 +55,7 @@ public class Ejecutor {
                     System.out.println("indique el valor del automovil");
                     double valorAuto=teclado.nextDouble();
                     teclado.nextLine();
+
                     //Adquirir datos del garante
                     System.out.println("Nombre Garante");
                     String nomGarante=teclado.nextLine();
@@ -60,13 +64,24 @@ public class Ejecutor {
                     System.out.println("User del garante");
                     String userGarante=teclado.nextLine();
                     Persona garante1=new Persona(nomGarante,apellidoGarnte,userGarante);
-                    PrestamoAutomovil prestamoAutomovil= new PrestamoAutomovil(beneficiario,timePrestamoMes,ciudadPrestamo
-                    ,tipoAuto,marcaAuto,garante1,valorAuto);
+                    //llamar a los metodos de la clase prestamoAutomovil con los objetos creados
+                    PrestamoAutomovil prestamoAutomovil = new PrestamoAutomovil(tipoAuto, marcaAuto, garante1, valorAuto);
+                    prestamoAutomovil.beneficiario = beneficiario;
+
+                    prestamoAutomovil.timePrestamoMes = timePrestamoMes;
+
+                    prestamoAutomovil.setCiudadPrestamo(ciudadPrestamo);
+                    /*
+                    Llamar al metodo set de la clase de prestamo automovil
+                    y se le da el parametro de ciudadPrestamo
+                     */
+                    prestamoAutomovil.calcularValorAutoPrestamo();
                     prestamos[cantidadPrestamos]=prestamoAutomovil;
                     cantidadPrestamos++;
                     break;
                 case 2:
                     System.out.println("Ingrese los datos para el prestamo educativo");
+
                     //Adquirir datos del beneficiario
                     System.out.println("Nombre beneficiario");
                     String nomBeneficiarioEdu=teclado.nextLine();
@@ -74,14 +89,16 @@ public class Ejecutor {
                     String apellidosBeneficiarioEdu=teclado.nextLine();
                     System.out.println("User Beneficiario");
                     String userBeneficiarioEdu=teclado.nextLine();
+
                     //Crea el beneficiario con los parametros/datos adquiridos
                     Persona beneficiarioEdu=new Persona(nomBeneficiarioEdu,apellidosBeneficiarioEdu,userBeneficiarioEdu);
+
                     //Prestamo
                     System.out.println("Tiempo para el prestamo en meses");
                     double timePrestamoMesEdu=teclado.nextDouble();
                     teclado.nextLine();
                     System.out.println("Ciudad donde fue el prestamo");
-                    String ciudadPrestamoEdu=teclado.nextLine();
+                    String ciudadPrestamoEdu=teclado.nextLine().toUpperCase();
                     System.out.println("Ingrese el nivel de estudio");
                     String nivelEdu=teclado.nextLine();
                     System.out.println("Nombre de la institucion");
@@ -93,6 +110,11 @@ public class Ejecutor {
                     teclado.nextLine();
                     InstitutoEducativo institutoEdu= new InstitutoEducativo(nomInst,siglasInst);
                     PrestamoEducativo prestamoEdu= new PrestamoEducativo(beneficiarioEdu,timePrestamoMesEdu,ciudadPrestamoEdu,nivelEdu,institutoEdu,valorCarreraEdu);
+                    prestamoEdu.calcularValorMesPrestamoCarrera();
+
+                    prestamoEdu.beneficiario = beneficiarioEdu;
+                    prestamoEdu.timePrestamoMes=timePrestamoMesEdu;
+
                     prestamos[cantidadPrestamos]=prestamoEdu;
                     cantidadPrestamos++;
                     break;
@@ -105,7 +127,6 @@ public class Ejecutor {
         System.out.println("Lista de prestamos");
         for (int i = 0; i < cantidadPrestamos; i++) {
             System.out.println(prestamos[i]);
-
         }
     }
     
